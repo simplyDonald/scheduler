@@ -157,13 +157,21 @@ storiesOf("Button", module)
         .add("Error",()=> <Error message="Could not delete appointment." onClose={action("onClose")} />)
         .add("Form-Edit",()=> <Form onSave={action("onSave")} onCancel={action("onCancel")} student="Anna Banana" interviewer={2} interviewers={interviewers} />)
         .add("Form-Save",()=> <Form onSave={action("onSave")} onCancel={action("onCancel")} interviewers={interviewers} />)
-
-
-
-
-
-        
-      
-        
+        .add("Appointment Empty", () => (
+          <Fragment>
+            <Appointment id={1} time="4pm" />
+            <Appointment time="5pm" />
+          </Fragment>
+        ))
+        .add("Appointment Booked", () => (
+          <Fragment>
+            <Appointment
+              id={1}
+              time="4pm"
+              interview={{ student: "Lydia Miller-Jones", interviewer }}
+            />
+            <Appointment time="5pm" />
+          </Fragment>
+        ))
         
 
