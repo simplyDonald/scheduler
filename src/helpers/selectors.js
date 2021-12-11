@@ -15,3 +15,27 @@ export function getAppointmentsForDay(state, day) {
   
   return finalArray;
 }
+
+export function getInterview(state, interview){
+  
+  const values = Object.values(state.appointments);
+  const cleanArray = [];
+  if(!interview){
+    return null;
+  }
+  
+  values.forEach((obj)=>{
+    if (obj.interview) {
+      cleanArray.push(obj);
+    } 
+  })
+  
+  const parsedData = cleanArray.filter(obj => {
+    return obj.interview.student === interview.student && obj.interview.interviewer === interview.interviewer
+  })
+  const freshObject = parsedData[0].interview;
+  const freshInterviewerId = parsedData[0].interview.interviewer;
+  
+  return {...freshObject,interviewer: state.interviewers[freshInterviewerId]};
+
+}
