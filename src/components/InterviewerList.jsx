@@ -6,7 +6,7 @@ import "components/InterviewerList.scss";
 export default function InterviewerList(props){
   const {interviewers} = props;
   const parsedData = interviewers.map((int) => {
-    return <InterviewerListItem 
+    return <InterviewerListItem key={int.id}
      selected={props.value === int.id}
      name={int.name} 
      avatar={int.avatar} 

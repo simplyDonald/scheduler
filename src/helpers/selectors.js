@@ -39,3 +39,21 @@ export function getInterview(state, interview){
   return {...freshObject,interviewer: state.interviewers[freshInterviewerId]};
 
 }
+
+export function getInterviewersForDay(state, day) {
+  //... returns an array of interviewers for that day
+  let finalArray = [];
+  const parsedData = state.days.filter((object)=>{
+    return object.name === day;
+  })
+  if (!parsedData[0]) {
+    return [];
+  }
+  const interviewersArray =  parsedData[0].interviewers;
+  
+  for (let id of interviewersArray) {
+    finalArray.push(state.interviewers[id]);
+  }
+  
+  return finalArray;
+}
