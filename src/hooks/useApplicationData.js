@@ -20,27 +20,6 @@ export default function useApplicationData(){
     return updatedState;   
   };
   
-  //finding the available apppointment spots in the state object
-  // const updateSpots = (id) =>{
-  //   const appointmentsArray = [...state.days.appointments];
-  //   console.log(`array apppoint--->`,appointmentsArray);
-  //   for (let id of state.days.appointments) {
-  //     if(state.appointments[id].interview === null){
-
-  //     }
-  //   }
-  //   const nullSpots = appointmentsArray.filter((appointmentId)=>{
-  //     return state.appointments[appointmentId].interview === null
-  //   });
-  //   let totalSpots = 5;
-  //   let spots = totalSpots - nullSpots.length;
-  //   const newState = state.days.map((day)=>{
-  //     if(day.appointments.includes(id)){
-  //       day.spots = spots;
-  //     }
-  //   })
-  //   console.log(newState);
-  // }
 
 
   useEffect(() => {
@@ -49,7 +28,7 @@ export default function useApplicationData(){
       axios.get(`http://localhost:8001/api/appointments`),
       axios.get(`http://localhost:8001/api/interviewers`)
     ]).then(([days,appointments,interviewers]) => {
-      // set your states here with the correct values..
+      
       setState((prevState)=>{
         
         return {...prevState,days: days.data,appointments: appointments.data, interviewers: interviewers.data}

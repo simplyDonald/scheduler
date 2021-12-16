@@ -28,7 +28,7 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
+        
         <img
           className="sidebar--centered"
           src="images/logo.png"
@@ -51,7 +51,7 @@ export default function Application(props) {
 
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+        
         {dailyAppointments.map((appointment)=>{
           const interview = getInterview(state, appointment.interview);
           const interviewersArray = getInterviewersForDay(state, state.day);
