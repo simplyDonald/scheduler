@@ -2,6 +2,14 @@
 #### web application for appointment booking
 donaldabuah@gmail.com
 
+
+## Screenshots
+![Appointment Form on axios call](https://github.com/simplyDonald/scheduler/blob/master/docs/Saving-axios-call.png)
+
+![Appointment Form ](https://github.com/simplyDonald/scheduler/blob/master/docs/appointment-form.png)
+
+![Form validation](https://github.com/simplyDonald/scheduler/blob/master/docs/form-validation1.png)
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -23,3 +31,5 @@ npm test
 ```sh
 npm run storybook
 ```
+
+
