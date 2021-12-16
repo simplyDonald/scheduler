@@ -19,6 +19,7 @@ export default function Form(props){
 
   function cancel(){
     reset();
+    setError("");
     props.onCancel();
 
   }
