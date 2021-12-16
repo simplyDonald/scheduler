@@ -1,4 +1,6 @@
 # Interview Scheduler
+#### web application for appointment booking
+donaldabuah@gmail.com
 
 ## Setup
 
