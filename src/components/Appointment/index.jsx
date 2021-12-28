@@ -21,6 +21,7 @@ export default function Appointment(props){
   const EDIT = "EDIT"
   const DELETE = "DELETE"
 
+  
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -63,7 +64,7 @@ export default function Appointment(props){
       {mode === SHOW && (
         <Show
           student={props.interview && props.interview.student}
-          interviewer={props.interview && props.interview.interviewer.name}
+          interviewer={props.interview.interviewer && props.interview.interviewer.name}
           onDelete={()=>transition(CONFIRM)}
           onEdit={()=>transition(EDIT)} 
         />
