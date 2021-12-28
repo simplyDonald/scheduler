@@ -6,6 +6,7 @@ export default function Form(props){
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
+  const [interviewerError,setInterviewerError] = useState("");
 
 
   function changeHandler(e){
@@ -20,6 +21,7 @@ export default function Form(props){
   function cancel(){
     reset();
     setError("");
+    setInterviewerError("");
     props.onCancel();
 
   }
@@ -29,6 +31,11 @@ export default function Form(props){
       return;
     }
     setError("");
+    if (!interviewer) {
+      setInterviewerError("Please select an Interviewer");
+      return;
+    }
+    setInterviewerError("");
     props.onSave(student, interviewer);
   }
 
@@ -52,11 +59,12 @@ export default function Form(props){
           value={interviewer}
           onChange={setInterviewer}
         />
+        <section className="appointment__validation">{interviewerError}</section>
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
-          <Button confirm onClick={()=>validate()}>Save</Button>
+          <Button confirm onClick={validate}>Save</Button>
         </section>
       </section>
     </main>
