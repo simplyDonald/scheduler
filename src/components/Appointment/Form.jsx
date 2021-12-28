@@ -11,7 +11,9 @@ export default function Form(props){
 
   function changeHandler(e){
     setStudent(e.target.value);
+    setError("");
   }
+
   function reset(){
     setStudent("");
     setInterviewer("");
@@ -32,7 +34,7 @@ export default function Form(props){
     }
     setError("");
     if (!interviewer) {
-      setInterviewerError("Please select an Interviewer");
+      setInterviewerError("Please choose an Interviewer");
       return;
     }
     setInterviewerError("");
@@ -59,7 +61,7 @@ export default function Form(props){
           value={interviewer}
           onChange={setInterviewer}
         />
-        <section className="appointment__validation">{interviewerError}</section>
+        <section className="appointment__validation">{!interviewer && interviewerError}</section>
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
