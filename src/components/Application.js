@@ -70,7 +70,6 @@ export default function Application(props) {
               cancelInterview={cancelInterview} />
             </ul>
           )
-            
           
         })}
       </section>
