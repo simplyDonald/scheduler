@@ -26,7 +26,10 @@ export default function useApplicationData(){
         return {...state,days: action.days.data,appointments: action.appointments.data, interviewers: action.interviewers.data}
       case SET_INTERVIEW: {
         const updateSpots = (action) => {   
-          const value = action.interview ? -1 : 1 ;
+          let value = action.interview ? -1 : 1 ;
+          if (action.mode === "EDIT"){
+            value = 0 ;
+          }
           const updatedState = state.days.map((day) => {       
             if(day.appointments.includes(action.id)) {  
                 return {...day, spots: day.spots + value};
@@ -83,11 +86,11 @@ export default function useApplicationData(){
 
   }
 
-  function bookInterview(id, interview) {
+  function bookInterview(id, interview,mode) {
     
     return axios.put(`/api/appointments/${id}`,{interview})
     .then(res=> {
-      dispatch({ type: SET_INTERVIEW, id, interview });
+      dispatch({ type: SET_INTERVIEW, id, interview, mode});
     });
     
 
