@@ -86,7 +86,7 @@ export default function useApplicationData(){
 
   }
 
-  function bookInterview(id, interview,mode) {
+  function bookInterview(id, interview, mode) {
     
     return axios.put(`/api/appointments/${id}`,{interview})
     .then(res=> {
